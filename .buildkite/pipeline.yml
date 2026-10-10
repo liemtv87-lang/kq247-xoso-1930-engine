@@ -1,0 +1,14 @@
+# Buildkite hosted Linux agent. Safe bootstrap: no predictions are published.
+# IMPORTANT: configure Buildkite pipeline steps to run "buildkite-agent pipeline upload".
+agents:
+  queue: "linux-small"
+steps:
+  - label: ":test_tube: Verify 19:30 Vietnam + 3 regions"
+    key: "model-contract"
+    command: "node --test test/*.test.mjs"
+    timeout_in_minutes: 5
+  - label: ":mag: Check current Neon endpoints (read only)"
+    key: "preflight"
+    depends_on: "model-contract"
+    command: "node scripts/preflight.mjs"
+    timeout_in_minutes: 5
