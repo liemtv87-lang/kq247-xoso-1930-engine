@@ -4,8 +4,8 @@ const day=process.env.KQ247_TARGET_DATE||predictionDayAt();
 const regions=stationsForDay(day);
 console.log(JSON.stringify({stage:"preflight",engine:"kq247-xoso-1930-engine",targetDate:day,timezone:ZONE,runAtVN:DAILY_VN_TIME,stationCount:Object.values(regions).reduce((sum,arr)=>sum+arr.length,0),regions,source:"Neon KQ247 history",writesAllowed:false},null,2));
 const sources=[
-  ["neon-main","https://br-divine-resonance-az0qxt8z-kq247web.compute.c-3.ap-southeast-1.aws.neon.tech/?region=xsmb"],
-  ["neon-forecast-api","https://br-divine-resonance-az0qxt8z-kq247xsmb.compute.c-3.ap-southeast-1.aws.neon.tech/api/predict"]
+  // Read-only page health. Never invoke /api/predict in a preflight: it may waste a computation.
+  ["neon-main","https://br-divine-resonance-az0qxt8z-kq247web.compute.c-3.ap-southeast-1.aws.neon.tech/?region=xsmb"]
 ];
 for(const [name,url] of sources){
   try{
