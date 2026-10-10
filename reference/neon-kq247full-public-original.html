@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0962c6">
+  <title>Xổ số V29/V10 — Bản dự đoán đã khóa</title>
+  <style>
+    *{box-sizing:border-box}
+    :root{--blue:#0962c6;--deep:#123b66;--ink:#182b3c;--muted:#607386;--surface:#fff;--page:#edf3f7;--line:#d7e2ea;--red:#ab202c;--redbg:#fff0f1;--green:#18754b;--greenbg:#e7f6ed}
+    body{margin:0;background:var(--page);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.45}
+    button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+    .warning{background:var(--redbg);color:var(--red);border-bottom:1px solid #f0cbd0;padding:9px 16px;text-align:center;font-size:12px;font-weight:800}
+    .wrap{width:min(100%,920px);margin:auto;padding:0 14px 40px}
+    header{padding:23px 0 17px}header .eyebrow{color:var(--blue);text-transform:uppercase;font-size:11px;font-weight:900}h1{margin:5px 0 3px;font-size:25px;line-height:1.2;color:var(--deep)}header p{margin:0;color:var(--muted);font-size:13px}
+    .region-tabs{position:sticky;top:0;z-index:3;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;background:var(--page);padding:8px 0;border-bottom:1px solid var(--line)}
+    .region-tab,.station-tab{border:1px solid var(--line);background:var(--surface);color:var(--deep);font-weight:800;border-radius:6px;min-height:42px;padding:8px 10px}
+    .region-tab.active,.station-tab.active{background:var(--blue);border-color:var(--blue);color:var(--surface)}
+    .station-tabs{display:flex;gap:7px;flex-wrap:wrap;padding:13px 0 5px}.station-tabs:empty{display:none}
+    .status-area{padding:17px 0 19px;border-bottom:1px solid var(--line)}.status-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}h2{margin:0;font-size:17px;line-height:1.35}.status{margin:11px 0 0;padding:11px 13px;border-left:3px solid var(--blue);background:var(--surface);font-size:13px;overflow-wrap:anywhere}.status.ok{border-color:var(--green);background:var(--greenbg)}.status.error{border-color:var(--red);background:var(--redbg);color:var(--red)}.meta{margin:10px 0 0;color:var(--muted);font-size:12px;overflow-wrap:anywhere}.meta:empty{display:none}
+    .actions{display:flex;gap:7px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:var(--surface);color:var(--deep);border-radius:6px;min-height:38px;padding:7px 12px;font-size:12px;font-weight:800;white-space:nowrap}.btn.primary{background:var(--blue);color:var(--surface);border-color:var(--blue)}.btn:disabled{opacity:.45;cursor:not-allowed}
+    .results{padding-top:18px}.station-name{margin:0 0 14px;font-size:21px;color:var(--deep)}.entry{border-bottom:1px solid var(--line);padding:15px 0}.entry:first-child{padding-top:0}.entry-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.entry h3{margin:0;font-size:15px;line-height:1.35;color:var(--ink)}.entry-note{margin:0 0 10px;color:var(--muted);font-size:12px;line-height:1.5}.numbers{display:flex;flex-wrap:wrap;gap:5px}.number{display:inline-flex;align-items:center;justify-content:center;min-width:37px;min-height:34px;padding:5px 7px;background:var(--surface);border:1px solid var(--line);border-radius:4px;font-size:13px;font-weight:750;font-variant-numeric:tabular-nums;color:var(--red)}.pairs .number{min-width:92px;font-size:17px;color:var(--blue);font-weight:900}.count{color:var(--muted);font-size:12px;white-space:nowrap;margin-left:5px}.copy-feedback{min-height:20px;color:var(--green);font-size:12px;margin:7px 0 0}
+    .entry-warning{margin:0;padding:10px 12px;background:var(--redbg);color:var(--red);border-left:3px solid var(--red);font-size:13px;font-weight:800;border-radius:4px;overflow-wrap:anywhere}
+    .stats-card{margin:0 0 20px;padding:14px 15px;background:var(--surface);border:1px solid var(--line);border-radius:6px}.stats-card h2{font-size:15px;color:var(--deep);margin:0 0 10px}.stats-card table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:12px;font-variant-numeric:tabular-nums}.stats-card th,.stats-card td{padding:8px 5px;border-top:1px solid var(--line);text-align:center;white-space:nowrap}.stats-card th:first-child,.stats-card td:first-child{width:35%;text-align:left;white-space:normal}.stats-card th{color:var(--deep);font-weight:800}.stats-card td{color:var(--ink)}.stats-card td.special{white-space:normal;font-size:11px;line-height:1.35}.stats-card .stats-empty{margin:0;color:var(--muted);font-size:12px}.stats-note{margin:9px 0 0;padding-top:8px;border-top:1px dashed var(--line);color:var(--muted);font-size:11.5px;line-height:1.45;overflow-wrap:anywhere}
+    .promo{margin:22px 0 0;padding:14px 15px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px}.promo ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}.promo li{font-size:13px;font-weight:700;color:var(--deep);line-height:1.4;overflow-wrap:anywhere}.promo a{color:var(--red);font-weight:800;text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}.promo .buy{margin:10px 0 0;padding-top:9px;border-top:1px dashed var(--line);font-size:13px;font-weight:800;color:var(--deep)}
+.pp-card .pp-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.pp-card table{table-layout:auto;min-width:640px}.pp-card th:first-child,.pp-card td:first-child{width:auto;white-space:nowrap}.pp-card td.warn{color:var(--red);font-weight:700}
+    @media(max-width:520px){.wrap{padding:0 12px 28px}header{padding:18px 0 13px}h1{font-size:22px}.entry-head{align-items:flex-start}.entry h3{font-size:14px}.entry .btn{min-width:59px}.number{min-width:33px;min-height:32px;font-size:12px;padding:4px 6px}.actions{width:100%}.actions .btn{flex:1}.stats-card{padding:12px 8px}.stats-card table{font-size:11px}.stats-card th,.stats-card td{padding:7px 2px}.stats-card th:first-child,.stats-card td:first-child{width:32%}.stats-card td.special{font-size:10.5px}.promo{margin-top:18px;padding:12px}.promo li{font-size:12.5px}.promo .buy{font-size:12.5px}}
+    @media(prefers-reduced-motion:no-preference){.btn,.region-tab,.station-tab{transition:background-color .15s,border-color .15s}}
+  </style>
+</head>
+<body>
+  <div class="warning">Cờ bạc là bất hợp pháp - Tool chỉ mang tính chất tham khảo - học hỏi !</div>
+  <div class="wrap">
+    <header><div class="eyebrow">BẢN SAO LOVABLE V10 · NEON MỚI · XSMB 3 LÔ</div><h1>Xổ số ba miền</h1><p id="dateLabel"></p></header>
+    <nav class="region-tabs" aria-label="Chọn miền">
+      <button type="button" class="region-tab" data-region="xsmb">XSMB</button>
+      <button type="button" class="region-tab" data-region="xsmt">XSMT</button>
+      <button type="button" class="region-tab" data-region="xsmn">XSMN</button>
+    </nav>
+    <nav id="stationTabs" class="station-tabs" aria-label="Chọn đài"></nav>
+    <section class="status-area" aria-label="Trạng thái dữ liệu">
+      <div class="status-top"><h2>Trạng thái</h2><div class="actions"><button type="button" id="refresh" class="btn" title="Tải lại bản đã khóa">↻ Cập nhật</button><button type="button" id="copyAll" class="btn primary" disabled>📋 Copy toàn bộ</button></div></div>
+      <div id="status" class="status" role="status" aria-live="polite">Đang tải bản dự đoán đã khóa…</div>
+      <div id="engineWarning" class="status error" role="alert" hidden></div>
+      <p id="meta" class="meta"></p><p id="copyFeedback" class="copy-feedback" role="status" aria-live="polite"></p>
+    </section>
+    <main id="results" class="results" aria-live="polite"></main>
+    <aside class="promo" aria-label="Giới thiệu dịch vụ">
+      <ul>
+        <li>* Bán tool Phân tích dự đoán XSMB, MT , MN</li>
+        <li>* Tool phân tích, dự đoán kèo bóng đá, chọn xiên 6/8/10 trận.</li>
+        <li>* Tool dự đoán Vietlott 6x45 6x55</li>
+        <li>* Nhóm kèo bóng: <a href="https://t.me/keochuyengia79" target="_blank" rel="noopener noreferrer">https://t.me/keochuyengia79</a></li>
+        <li>* Nhóm Xổ Số: <a href="https://t.me/xsbm999" target="_blank" rel="noopener noreferrer">https://t.me/xsbm999</a></li>
+      </ul>
+      <p class="buy">Mua tool tại: <a href="https://t.me/muatool_du_doan_bot" target="_blank" rel="noopener noreferrer">@muatool_du_doan_bot</a></p>
+    </aside>
+  </div>
+  <script>
+    (()=>{
+      const ENDPOINT=location.origin+'/api/mirror';
+      const THREE_API=location.origin;
+      const MODEL='LOTTERY_CONSENSUS_V10_20261001';
+      const REGIONS={xsmb:'mb',xsmt:'mt',xsmn:'mn'};
+      const LABELS={bachthu3:'3 LÔ BẠCH THỦ · 3 SỐ',lotto_pairs:'2 CẶP LOTTO AB- BA ( MỤC TIÊU TRÚNG 2 NHÁY)',doubles:'2 LOTTO KÉP',dan50:'DÀN ĐB 50 SỐ',dan60:'DÀN ĐB 60 SỐ',dan75:'DÀN ĐB 75 SỐ',three_digit:'DÀN 3 CÀNG 500 SỐ'};
+      const FIELDS=['lotto_pairs','doubles','dan50','dan60','dan75','three_digit'];
+      const currentFields=()=>region==='xsmb'?['bachthu3','doubles','dan50','dan60','dan75','three_digit']:FIELDS;
+      const ENGINES=['MULTIDAY_DYNAMIC_BRIDGE_V10','DAILY_PREVCALDAY_LOTTO_500X500_V3','DAILY_POSITION_9_V2'];const ENGINE=ENGINES[0];
+      const NOTES={bachthu3:'Mô hình 3 lô XSMB sử dụng 500 kỳ, kết hợp cầu vị trí, đầu/đuôi và bạc nhớ; không đảm bảo trúng. ĐB và 3 càng giữ nguyên dữ liệu snapshot Lovable V10.',lotto_pairs:'500 PHƯƠNG PHÁP BẮT LÔ CẶP LỘN AB-BA + 500 PHƯƠNG PHÁP LOẠI LÔ CẶP LỘN AB-BA (bắt/loại theo cặp, không phải từng số lô) • độc lập theo ngày • chỉ dùng dữ liệu ngày hôm trước • đồng thuận 500 bắt/500 loại • loại cặp nếu có ít nhất 1 số gan ≥10 ngày • chọn đúng 2 cặp đẹp nhất • 2 cặp không liên quan nhau, không có 2 số cùng đầu hoặc cùng đuôi giữa hai cặp • học/backtest tách riêng từng miền; XSMT/XSMN tách riêng từng đài.',dan50:'1000 PP bắt + 1000 PP loại độc lập theo ngày; chỉ 1 đầu bị loại cứng',dan60:'1000 PP bắt + 1000 PP loại độc lập theo ngày; chỉ 1 đầu bị loại cứng',dan75:'1000 PP bắt + 1000 PP loại độc lập theo ngày; chỉ 1 đầu bị loại cứng',three_digit:'500 PP loại hàng trăm độc lập theo ngày; chỉ 1 hàng trăm bị loại cứng; không có loại cứng khác; 2 số cuối thuộc D75'};
+      const $=id=>document.getElementById(id);
+      const params=new URLSearchParams(location.search);
+      const regionRaw=(params.get('region')||'').toLowerCase(),regionKey=regionRaw==='xsmbm'?'xsmb':regionRaw;
+      let region=REGIONS[regionKey]?regionKey:'xsmb';
+      let station=params.get('station')||'';
+      let snapshot=null,snapshotStats=null,threeSnapshot=null,loadedDate='',fingerprint='';
+      function vnTarget(){
+        const p=Object.fromEntries(new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Ho_Chi_Minh',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',hourCycle:'h23'}).formatToParts(new Date()).filter(x=>x.type!=='literal').map(x=>[x.type,x.value]));
+        const date=`${p.year}-${p.month}-${p.day}`;
+        return Number(p.hour)>=19?new Date(Date.parse(date+'T00:00:00Z')+86400000).toISOString().slice(0,10):date;
+      }
+      const requested=params.get('date')||params.get('target')||'';
+      const target=/^20\d{2}-\d{2}-\d{2}$/.test(requested)&&!Number.isNaN(Date.parse(requested+'T00:00:00Z'))?requested:vnTarget();
+      $('dateLabel').textContent='Ngày '+target.split('-').reverse().join('/');
+      function status(message,kind=''){$('status').className='status '+kind;$('status').textContent=message}
+      function selection(){return snapshot?.predictions?.[REGIONS[region]]?.[station]}
+      function stations(){
+        const r=REGIONS[region],available=snapshot?.predictions?.[r]||{};
+        return [...new Set([...(Array.isArray(snapshot?.schedule?.[r])?snapshot.schedule[r]:[]),...Object.keys(available)])].filter(s=>available[s]);
+      }
+      function values(p,key){return key==='bachthu3'?threeSnapshot?.picks:key==='lotto_pairs'?p.lotto_pairs:key==='doubles'?p.doubles:p.de?.[key]}
+      function valid(p){return !!p&&[['lotto_pairs',2],['doubles',2],['dan50',50],['dan60',60],['dan75',75],['three_digit',500]].every(([key,n])=>Array.isArray(values(p,key))&&values(p,key).length===n)}
+      function pairRuleViolation(p){
+        const data=p?.lotto_pairs;
+        if(!Array.isArray(data)||data.length!==2)return 'data';
+        const digs=data.map(v=>{
+          const m=/^(\d)(\d)-(\d)(\d)$/.exec(String(v).trim());
+          return m?[Number(m[1]),Number(m[2]),Number(m[3]),Number(m[4])]:null;
+        });
+        if(digs.some(d=>!d))return 'format';
+        for(const d of digs){const [a,b,c,dd]=d;if(!(a===dd&&b===c))return 'not-ab-ba'}
+        const set1=new Set([digs[0][0],digs[0][1]]),set2=new Set([digs[1][0],digs[1][1]]);
+        for(const d of set1)if(set2.has(d))return 'shared-digit';
+        return null;
+      }
+      function statsCell(window,key){
+        const draws=window?.draws,metric=window?.[key];
+        if(!Number.isInteger(draws)||draws<0||!Number.isInteger(metric?.hit)||metric.hit<0||metric.hit>draws||typeof metric.rate!=='number'||!Number.isFinite(metric.rate)||metric.rate<0||metric.rate>1)return '—';
+        return metric.hit+'/'+draws+' ('+(metric.rate*100).toFixed(1)+'%)';
+      }
+      function specialCell(window){
+        const sp=window?.special;
+        if(!sp||typeof sp.last2!=='string'||!/^\d{2}$/.test(sp.last2)||typeof sp.last3!=='string'||!/^\d{3}$/.test(sp.last3))return '—';
+        return '2 số: '+sp.last2+' • 3 số: '+sp.last3;
+      }
+      function renderStats(root){
+        const card=document.createElement('section');card.className='stats-card';card.setAttribute('aria-label','Thống kê 30 / 60 kỳ gần nhất');
+        const heading=document.createElement('h2');heading.textContent='THỐNG KÊ 30 / 60 KỲ GẦN NHẤT';card.append(heading);
+        const data=snapshotStats?.[REGIONS[region]+'|'+station];
+        if(!data){const empty=document.createElement('p');empty.className='stats-empty';empty.textContent='Chưa có thống kê cho đài '+station+'.';card.append(empty);root.append(card);return}
+        const table=document.createElement('table'),head=document.createElement('thead'),headRow=document.createElement('tr');
+        for(const label of ['', '30 kỳ', '60 kỳ']){const th=document.createElement('th');th.scope='col';th.textContent=label;headRow.append(th)}
+        head.append(headRow);table.append(head);
+        const body=document.createElement('tbody');
+        for(const [label,key] of [['Lô 2 cặp','loto'],['Đề D50','d50'],['Đề D60','d60'],['Đề D75','d75'],['3 càng','three']]){
+          const row=document.createElement('tr'),name=document.createElement('th');name.scope='row';name.textContent=label;row.append(name);
+          for(const window of ['30','60']){const cell=document.createElement('td');cell.textContent=statsCell(data[window],key);row.append(cell)}
+          body.append(row);
+        }
+        const specialRow=document.createElement('tr'),specialName=document.createElement('th');specialName.scope='row';specialName.textContent='ĐB thực tế gần nhất';specialRow.append(specialName);
+        for(const window of ['30','60']){const cell=document.createElement('td');cell.className='special';cell.textContent=specialCell(data[window]);specialRow.append(cell)}
+        body.append(specialRow);
+        table.append(body);card.append(table);
+        const note=document.createElement('p');note.className='stats-note';note.textContent='D50/D60/D75 chấm theo 2 số cuối giải ĐB; 3 càng chấm theo 3 số cuối giải ĐB.';card.append(note);
+        root.append(card);
+      }
+      const PP=['PREV_POSITION','PREV_TRIANGLE','PREV_TOUCH_SUM','PREV_BRIDGE','PREV_MIRROR','SAME_WEEKDAY','SAME_DAY_MONTH','SAME_MONTH_DAY','CALENDAR_POSITION_ANALOG'];
+      function num(v){return typeof v==='number'&&isFinite(v)?v:null}
+      function ppWin(m,w){const o=m?.[w]||m?.['w'+w]||{};const n=num(o.n??o.draws??m?.['n'+w]),h=num(o.hit??o.hits??m?.['hit'+w]);let r=num(o.rate??m?.['rate'+w]);if(r===null&&n&&h!==null)r=h/n;if(r!==null&&r<=1)r*=100;return{n,h,r}}
+      function renderPP(root,p){
+        const meta=p.method_meta?.lotto_r9_daily9||p.debug?.method_meta?.lotto_r9_daily9||{};const ad=meta.adaptive_method_reliability;const hasAd=!!ad&&typeof ad==='object'&&PP.some(m=>ad[m]&&typeof ad[m]==='object'&&[30,60].some(w=>{const x=ppWin(ad[m],w);return x.n!==null&&x.n>0&&x.h!==null}));
+        const card=document.createElement('section');card.className='stats-card pp-card';card.setAttribute('aria-label','Kiểm định phương pháp lô');
+        const h=document.createElement('h2');h.textContent='KIỂM ĐỊNH PHƯƠNG PHÁP LÔ';card.append(h);
+        const scores={};if(!hasAd)for(const d of (Array.isArray(p.lotto_pair_details)?p.lotto_pair_details:[]))for(const [k,v] of Object.entries(d?.method_scores||{}))if(num(v)!==null)scores[k]=Math.max(scores[k]??-Infinity,v);
+        const wrap=document.createElement('div');wrap.className='pp-scroll';const t=document.createElement('table');
+        const cols=hasAd?['PP','Mẫu 30','Trúng 30','Tỷ lệ 30','Mẫu 60','Trúng 60','Tỷ lệ 60','Cảnh báo']:['PP','Mẫu 30','Trúng 30','Tỷ lệ 30','Mẫu 60','Trúng 60','Tỷ lệ 60','Điểm hiện tại','Cảnh báo'];
+        const hr=document.createElement('tr');for(const c of cols){const th=document.createElement('th');th.scope='col';th.textContent=c;hr.append(th)}const th_=document.createElement('thead');th_.append(hr);t.append(th_);
+        const tb=document.createElement('tbody');
+        for(const m of PP){const row=document.createElement('tr');const cells=[m];let warn;
+          if(hasAd){const a=ppWin(ad[m],30),b=ppWin(ad[m],60);const f=(v,d)=>v===null?'—':d?v.toFixed(1)+'%':String(v);cells.push(f(a.n),f(a.h),f(a.r,1),f(b.n),f(b.h),f(b.r,1));const w=[];if(!ad[m])w.push('Chưa có walk-forward');else{if((a.n!==null&&a.n<20)||(b.n!==null&&b.n<20))w.push('Mẫu nhỏ');if(a.r!==null&&b.r!==null&&b.r-a.r>=10)w.push('Đang giảm')}warn=w.join(' • ')}
+          else{cells.push('—','—','—','—','—','—',scores[m]!==undefined?String(Math.round(scores[m]*1000)/1000):'—');warn='Chưa có walk-forward'}
+          cells.push(warn||'');cells.forEach((c,i)=>{const td=document.createElement(i?'td':'th');if(!i)td.scope='row';td.textContent=c;if(i===cells.length-1&&c)td.className='warn';row.append(td)});tb.append(row)}
+        t.append(tb);wrap.append(t);card.append(wrap);
+        if(!hasAd){const n=document.createElement('p');n.className='stats-note';n.textContent='Chưa đủ dữ liệu walk-forward: chỉ hiển thị điểm hiện tại của từng PP, không có tỷ lệ 30/60.';card.append(n)}
+        const cs=meta.calendar_samples;if(cs&&typeof cs==='object'){const CAL=[['SAME_WEEKDAY','same_weekday_samples'],['SAME_DAY_MONTH','same_day_month_samples'],['SAME_MONTH_DAY','same_month_day_samples']];const n=document.createElement('p');n.className='stats-note';n.textContent='Số mẫu lịch: '+CAL.map(([k,f])=>{const c=num(cs[f]);return k+' = '+(c===null?'—':c)+(c!==null&&c<20?' (mẫu nhỏ)':'')}).join(' • ');card.append(n)}
+        root.append(card);
+      }
+      function updateUrl(){const url=new URL(location.href);url.searchParams.set('region',region);if(station&&region!=='xsmb')url.searchParams.set('station',station);else url.searchParams.delete('station');history.replaceState(null,'',url)}
+      function render(){
+        document.querySelectorAll('[data-region]').forEach(b=>{const selected=b.dataset.region===region;b.classList.toggle('active',selected);b.setAttribute('aria-current',selected?'page':'false')});
+        const names=stations();if(snapshot&&!names.includes(station))station=names[0]||'';
+        const tabs=$('stationTabs');tabs.replaceChildren();
+        if(region!=='xsmb')for(const name of names){const b=document.createElement('button');b.type='button';b.className='station-tab'+(station===name?' active':'');b.textContent=name;b.setAttribute('aria-current',station===name?'page':'false');b.onclick=()=>{station=name;updateUrl();render()};tabs.append(b)}
+        const p=selection(),root=$('results');root.replaceChildren();const pairViolation=region==='xsmb'?null:(p?pairRuleViolation(p):null);$('copyAll').disabled=!valid(p)||!!pairViolation||(region==='xsmb'&&!threeSnapshot);$('engineWarning').hidden=true;$('engineWarning').textContent='';
+        if(!snapshot)return;
+        if(!names.length){status('Bản đã khóa không có dữ liệu cho '+region.toUpperCase()+'.','error');return}
+        if(!valid(p)){status('Dữ liệu của đài '+station+' trong bản đã khóa chưa đầy đủ. Không hiển thị dự đoán.','error');return}
+        status('✓ Bản dự đoán đã khóa · '+region.toUpperCase()+' · '+station,'ok');
+        const engineVersion=p.debug?.lotto_engine_version;
+        if(!ENGINES.includes(engineVersion)){$('engineWarning').textContent='⚠ Phiên bản engine không hợp lệ: '+(engineVersion||'không có phiên bản')+' (cần '+ENGINES.join(' hoặc ')+'). Số liệu hiển thị nguyên bản từ trung tâm.';$('engineWarning').hidden=false}
+        // Hai bảng "THỐNG KÊ 30 / 60 KỲ GẦN NHẤT" và "KIỂM ĐỊNH PHƯƠNG PHÁP LÔ" không hiển thị ở giao diện.
+        // renderStats / renderPP vẫn giữ nguyên; dữ liệu stats và method_meta vẫn được tải và dùng cho tự học.
+        const title=document.createElement('h2');title.className='station-name';title.textContent=station;root.append(title);
+        for(const key of currentFields()){
+          const data=values(p,key),section=document.createElement('section');section.className='entry';
+          const head=document.createElement('div');head.className='entry-head';
+          const heading=document.createElement('h3');heading.textContent=LABELS[key];
+          const button=document.createElement('button');button.type='button';button.className='btn';button.disabled=(key==='lotto_pairs'&&!!pairViolation)||(key==='bachthu3'&&!Array.isArray(data));button.title='Sao chép '+LABELS[key];button.textContent='📋 Copy';button.onclick=()=>copy(LABELS[key]+'\n'+data.join(' '));
+          head.append(heading,button);section.append(head);
+          if(NOTES[key]){const note=document.createElement('p');note.className='entry-note';note.textContent=NOTES[key];section.append(note)}
+          if(key==='bachthu3'&&!Array.isArray(data)){const warn=document.createElement('p');warn.className='entry-warning';warn.textContent='Chưa có snapshot 3 lô XSMB hợp lệ; không hiển thị số dự đoán giả.';section.append(warn);root.append(section);continue}
+          if(key==='lotto_pairs'&&pairViolation){const warn=document.createElement('p');warn.className='entry-warning';warn.textContent='Snapshot lô không đạt quy tắc 2 cặp độc lập, hãy cập nhật lại';section.append(warn);root.append(section);continue}
+          const row=document.createElement('div');row.className='numbers'+(key==='lotto_pairs'||key==='bachthu3'?' pairs':'');
+          for(const n of data){const chip=document.createElement('span');chip.className='number';chip.textContent=String(n);row.append(chip)}
+          section.append(row);root.append(section);
+        }
+        $('meta').textContent='Ngày '+loadedDate.split('-').reverse().join('/')+' · '+MODEL+' · Fingerprint: '+fingerprint+(engineVersion?' · Engine: '+engineVersion:'');
+      }
+      async function copy(text){
+        try{if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(text);else{const t=document.createElement('textarea');t.value=text;document.body.append(t);t.select();if(!document.execCommand('copy'))throw Error('copy');t.remove()}$('copyFeedback').textContent='✓ Đã sao chép';}
+        catch{$('copyFeedback').textContent='Không thể sao chép trên trình duyệt này.'}
+      }
+      $('copyAll').onclick=()=>{const p=selection();if(!valid(p)||(region!=='xsmb'&&pairRuleViolation(p))||(region==='xsmb'&&!threeSnapshot))return;copy([region.toUpperCase()+' · '+station+' · '+loadedDate,...currentFields().map(k=>LABELS[k]+'\n'+values(p,k).join(' '))].join('\n\n'))};
+      document.querySelectorAll('[data-region]').forEach(b=>b.onclick=()=>{region=b.dataset.region;station='';updateUrl();render()});
+      async function load(){
+        snapshot=null;snapshotStats=null;threeSnapshot=null;fingerprint='';$('meta').textContent='';$('copyFeedback').textContent='';render();status('Đang tải bản dự đoán đã khóa…');$('refresh').disabled=true;
+        try{
+          const url=new URL(ENDPOINT);url.searchParams.set('data','1');url.searchParams.set('date',target);
+          const response=await fetch(url.toString(),{cache:'no-store'});
+          if(!response.ok)throw Error('Không thể tải bản dự đoán (HTTP '+response.status+').');
+          const result=await response.json();
+          if(!result.ok||!result.found||result.locked!==true||result.lock?.locked!==true)throw Error('Bản dự đoán ngày '+target+' chưa được khóa ở trung tâm.');
+          if(result.lock?.model!==MODEL||result.data?.model!==MODEL)throw Error('Sai phiên bản bản dự đoán: cần '+MODEL+'.');
+          if(result.date!==target||result.data?.date!==target)throw Error('Ngày của bản dự đoán không khớp ngày yêu cầu.');
+          const fp=result.fingerprint||result.data?.fingerprint;
+          if(!fp||result.data?.fingerprint!==fp||result.lock?.fingerprint!==fp)throw Error('Fingerprint của bản dự đoán không khớp.');
+          if(!result.data?.predictions||!result.data?.schedule)throw Error('Bản dự đoán đã khóa thiếu dữ liệu.');
+          snapshot=result.data;snapshotStats=result.data.stats||result.stats||null;fingerprint=fp;loadedDate=result.data.date;
+          try{const threeUrl=new URL('/api/three',THREE_API);threeUrl.searchParams.set('date',target);const rr=await fetch(threeUrl.toString(),{cache:'no-store'});const three=await rr.json();if(!rr.ok||three.ok!==true||three.locked!==true||three.model!=='XSMB_BACH_THU3_WF1000_V1'||three.date!==target||!Array.isArray(three.picks)||three.picks.length!==3||new Set(three.picks).size!==3||!three.picks.every(x=>/^\d{2}$/.test(x)))throw Error(three.error||'3 lô chưa được khóa');threeSnapshot=three;}catch(e){threeSnapshot=null;if(region==='xsmb')$('engineWarning').textContent='3 lô XSMB: '+(e.message||String(e));}
+          render();
+        }catch(error){snapshot=null;$('results').replaceChildren();$('stationTabs').replaceChildren();$('copyAll').disabled=true;$('meta').textContent='';status('✗ '+(error instanceof Error?error.message:'Không tải được bản dự đoán.'),'error')}
+        finally{$('refresh').disabled=false}
+      }
+      $('refresh').onclick=load;
+      load();
+    })();
+  </script>
+</body>
+</html>
