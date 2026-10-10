@@ -18,3 +18,9 @@ steps:
     depends_on: "model-contract"
     command: "node scripts/verify-live-original.mjs"
     timeout_in_minutes: 5
+
+  - label: ":mag: Read-only snapshot readiness (3 lô + ĐB + 3 càng)"
+    key: "production-readiness"
+    depends_on: "model-contract"
+    command: "node scripts/check-production-snapshots.mjs"
+    timeout_in_minutes: 5
