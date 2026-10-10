@@ -12,3 +12,9 @@ steps:
     depends_on: "model-contract"
     command: "node scripts/preflight.mjs"
     timeout_in_minutes: 5
+
+  - label: ":closed_lock_with_key: Verify unchanged Neon public source"
+    key: "neon-original-integrity"
+    depends_on: "model-contract"
+    command: "node scripts/verify-live-original.mjs"
+    timeout_in_minutes: 5
