@@ -21,7 +21,7 @@ int main(){ios::sync_with_stdio(false);ifstream in("xsmb-2-digits.csv");if(!in){
  cout<<"SOURCE_DRAWS "<<d.size()<<" TARGET_FROM "<<d[start].date<<" TARGET_TO "<<d.back().date<<"\n"<<flush;
  priority_queue<Candidate,vector<Candidate>,MinTraining> pool;
  constexpr int POOL_SIZE=512;
- uint64_t base=0;
+ uint64_t base=0,digestVal=0,digestTest=0;
  for(int a=0;a<64;a++)for(int b=0;b<64;b++)for(int lag=1;lag<=7;lag++)for(int op=0;op<7;op++)for(int tr=0;tr<10;tr++){
   ++base;uint16_t hit[3][100]{};uint16_t stamp[100]{};
   for(int i=0;i<500;i++){int t=start+i;int fold=i<250?0:i<375?1:2;
@@ -30,13 +30,14 @@ int main(){ios::sync_with_stdio(false);ifstream in("xsmb-2-digits.csv");if(!in){
     if(stamp[offset]!=(uint16_t)(i+1)){stamp[offset]=(uint16_t)(i+1);hit[fold][offset]++;}}
   }
   for(int offset=0;offset<100;offset++){
+   digestVal+=(uint64_t)(offset+1)*hit[1][offset];digestTest+=(uint64_t)(offset+1)*hit[2][offset];
    int score=hit[0][offset];if(pool.size()<POOL_SIZE||score>pool.top().train){
     pool.push({a,b,lag,op,tr,offset,score});if(pool.size()>POOL_SIZE)pool.pop();
    }
   }
  }
  cout<<"BASE_VARIANTS "<<base<<" FORMULAS "<<base*100<<" FORMULA_DAY_CASES "<<base*100*500ULL
-     <<" OFFSET_UPDATES "<<base*500*27ULL<<"\n";
+     <<" OFFSET_UPDATES "<<base*500*27ULL<<" VALIDATION_DIGEST "<<digestVal<<" TEST_DIGEST "<<digestTest<<"\n";
  vector<Candidate> finalists;while(!pool.empty()){finalists.push_back(pool.top());pool.pop();}
  sort(finalists.begin(),finalists.end(),[](const Candidate&a,const Candidate&b){return a.train>b.train;});
  cout<<"TOP_TRAIN "<<finalists[0].train<<"/250; candidate_pool="<<finalists.size()<<"\n";
