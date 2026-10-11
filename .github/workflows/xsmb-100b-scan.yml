@@ -1,0 +1,32 @@
+name: XSMB 100B Formula Scan
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/xsmb-100b-scan.yml'
+      - 'research/xsmb_100b_scan.cpp'
+jobs:
+  xsmb-100b:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get real lottery history
+        run: |
+          curl -fsSL --retry 3 --max-time 120 -o xsmb-2-digits.csv https://raw.githubusercontent.com/khiemdoan/vietnam-lottery-xsmb-analysis/refs/heads/main/data/xsmb-2-digits.csv
+          echo "CSV rows:"
+          wc -l xsmb-2-digits.csv
+      - name: Compile 100B walk-forward scan
+        run: g++ -std=c++17 -O3 -march=x86-64 -o xsmb_scan research/xsmb_100b_scan.cpp
+      - name: Evaluate 200704000 formulas across 500 draws
+        run: |
+          ./xsmb_scan | tee xsmb-100b-report.txt
+      - name: Upload signed-off test log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xsmb-100b-report
+          path: xsmb-100b-report.txt
+          if-no-files-found: warn
