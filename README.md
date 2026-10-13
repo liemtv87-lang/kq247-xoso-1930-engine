@@ -25,8 +25,8 @@ Buildkite tính năng scheduled builds phải được xác minh trên tài kho�
 
 ## Cộng đồng xổ số KQ247 trên Telegram (miễn phí)
 
-[**Nhóm kết quả và dự đoán xổ số XSMB, XSMT, XSMN — @xsbm999**](https://t.me/xsbm999) là nơi trao đổi thông tin kỳ mở thưởng, kết quả xổ số hôm nay, thống kê tham khảo theo miền Bắc/Trung/Nam. [Xem giới thiệu và hướng dẫn tham gia](https://kq247-r55-football.hatchable.site/nhom-xo-so-mb-mn-mt-telegram-mien-phi.html).
+[**Nhóm kết quả và dự đoán xổ số XSMB, XSMT, XSMN — @xsbm999**](https://t.me/xsbm999) là nơi trao đổi thông tin kỳ mở thưởng, kết quả xổ số hôm nay, thống kê tham khảo theo miền Bắc/Trung/Nam. [Xem giới thiệu và hướng dẫn tham gia](https://64-120-92-172.sslip.io/nhom-xo-so-mb-mn-mt-telegram-mien-phi.html).
 
-Nhóm [**bóng đá KQ247 miễn phí — @keochuyengia79**](https://t.me/keochuyengia79) dành cho người theo dõi lịch trận và phân tích kèo châu Á/Tài Xỉu. [Trang thông tin bóng đá](https://kq247-r55-football.hatchable.site/nhom-bong-da-telegram-mien-phi.html).
+Nhóm [**bóng đá KQ247 miễn phí — @keochuyengia79**](https://t.me/keochuyengia79) dành cho người theo dõi lịch trận và phân tích kèo châu Á/Tài Xỉu. [Trang thông tin bóng đá](https://64-120-92-172.sslip.io/nhom-bong-da-telegram-mien-phi.html).
 
 Đọc nội dung nhóm miễn phí; dự đoán chỉ để tham khảo, không bảo đảm trúng thưởng.
