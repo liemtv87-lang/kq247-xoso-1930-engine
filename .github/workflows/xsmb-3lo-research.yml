@@ -1,0 +1,30 @@
+name: XSMB 3-lo rolling research
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 13 * * *' # 20:30 Asia/Ho_Chi_Minh
+permissions:
+  contents: read
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify historical input
+        run: |
+          if [ ! -f research/data/xsmb_27_endings.csv ]; then
+            echo "::error::MISSING DATA research/data/xsmb_27_endings.csv. No test performed."
+            exit 1
+          fi
+      - name: Run 500-day walk-forward baseline
+        run: python research/xsmb_3lo_backtest.py --csv research/data/xsmb_27_endings.csv --days 500 --warmup 60 --out research/results/xsmb_3lo_report.json
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: xsmb-3lo-backtest
+          path: research/results/xsmb_3lo_report.json
+          retention-days: 30
