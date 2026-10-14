@@ -1,0 +1,125 @@
+{
+  "timestamp_vn": "2026-10-14 21:43",
+  "source": "research/data/xsmb_27_endings.csv",
+  "source_sha": "9d1ec4a57875593f83e3dd8d97b76aa81ea6bddc",
+  "rows": 620,
+  "model_family": "Online exponentially weighted expert-rank ensemble (8 causal base experts, previous-day-only expert success adaptation)",
+  "unique_configs_executed": 1200,
+  "config_indices": [
+    2001,
+    3200
+  ],
+  "config_generation": "Halton 8 dimensions; four adaptation windows, four eta, three Borda exponents; 1200 unique k indices",
+  "base_experts": [
+    "hot14 occurrence",
+    "hot30 unique presence",
+    "hot30 occurrences",
+    "hot90 occurrences",
+    "EWMA tau14",
+    "EWMA tau45",
+    "gap90 peak5/14",
+    "previous-draw +/-1 and 100-v"
+  ],
+  "training_selection": "Maximize train400 hit then train400 nhay only",
+  "best_config": {
+    "k": 2509,
+    "window": 30,
+    "eta": 9,
+    "power": 0.7,
+    "weights": [
+      1.763257,
+      1.658444,
+      2.084944,
+      1.196201,
+      0.526866,
+      0.300832,
+      1.59423,
+      0.387746
+    ],
+    "trainhits": 248,
+    "trainnhay": 370,
+    "retrohits": 58,
+    "retronhay": 85,
+    "hits": 306,
+    "nhay": 455,
+    "parts": [
+      65,
+      54,
+      59,
+      70,
+      58
+    ]
+  },
+  "train400": {
+    "hits": 248,
+    "nhay": 370,
+    "parts": [
+      65,
+      54,
+      59,
+      70
+    ]
+  },
+  "retrospective100": {
+    "hits": 58,
+    "nhay": 85,
+    "parts": [
+      58
+    ]
+  },
+  "total500": {
+    "hits": 306,
+    "nhay": 455,
+    "parts": [
+      65,
+      54,
+      59,
+      70,
+      58
+    ]
+  },
+  "baseline_hot30_unique": {
+    "expert": 1,
+    "hit": 277,
+    "nhay": 401,
+    "parts": [
+      53,
+      51,
+      51,
+      66,
+      56
+    ]
+  },
+  "baseline_hot30_occurrences": {
+    "expert": 2,
+    "hit": 285,
+    "nhay": 427,
+    "parts": [
+      60,
+      59,
+      47,
+      66,
+      53
+    ]
+  },
+  "previous_best": {
+    "hits": 322,
+    "nhay": 446,
+    "parts": [
+      65,
+      63,
+      58,
+      75,
+      61
+    ]
+  },
+  "independent_future_validation": false,
+  "production_updated": false,
+  "caveats": [
+    "Retrospective last100 previously inspected across prior model searches, not independent",
+    "Online expert weights at day t use only prior expert outcomes (prefix succ[t])",
+    "Base expert feature windows strictly precede predicted draw",
+    "Research comparisons over many families have selection bias",
+    "Do not deploy before future untouched data validation"
+  ]
+}
