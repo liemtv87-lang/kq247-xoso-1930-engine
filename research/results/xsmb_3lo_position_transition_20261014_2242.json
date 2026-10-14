@@ -1,0 +1,98 @@
+{
+  "timestamp_vn": "2026-10-14 22:42",
+  "source": "research/data/xsmb_27_endings.csv",
+  "source_sha": "9d1ec4a57875593f83e3dd8d97b76aa81ea6bddc",
+  "rows": 620,
+  "evaluated_days": 500,
+  "model_family": "Conditional tens/units transition by prize position; previous lag 1/7; same/next position; direct/cross digits; 30/90 draw training windows; mix with hot30 unique/occ and hot90 occ",
+  "implementation": "JavaScript evaluation isolated from production. For target i, conditional transitions estimated only from j<i and source j-lag. Conditional tens/units probabilities with Laplace alpha=2; score sum over 27 positions; normalize each channel by per-day cross-number standard deviation; select top3 numbers. Deterministic Halton q=1..576; reject repeated transition-channel triplets.",
+  "config_attempts": 576,
+  "unique_configs_executed": 475,
+  "features": 19,
+  "selection": "Select by train400_hits, tie-break train400_nhay. Last100 is previously inspected retrospective data, NOT an independent holdout.",
+  "best_config": {
+    "halton_index": 396,
+    "channels": [
+      "transition_W30_lag1_shift1_cross1",
+      "transition_W30_lag1_shift0_cross1",
+      "transition_W30_lag7_shift0_cross1"
+    ],
+    "weights": [
+      1.34952,
+      0.25409,
+      1.17223
+    ],
+    "baseline": "hot90_occ",
+    "baseline_weight": 0.63016
+  },
+  "train400": {
+    "hits": 249,
+    "nhay": 356,
+    "parts": [
+      61,
+      61,
+      65,
+      62
+    ]
+  },
+  "retrospective100": {
+    "hits": 65,
+    "nhay": 86,
+    "parts": [
+      65
+    ]
+  },
+  "total500": {
+    "hits": 314,
+    "nhay": 442,
+    "parts": [
+      61,
+      61,
+      65,
+      62,
+      65
+    ]
+  },
+  "baseline_hot30_unique": {
+    "hits": 277,
+    "nhay": 401,
+    "parts": [
+      53,
+      51,
+      51,
+      66,
+      56
+    ]
+  },
+  "baseline_hot30_occurrences": {
+    "hits": 285,
+    "nhay": 427,
+    "parts": [
+      60,
+      59,
+      47,
+      66,
+      53
+    ]
+  },
+  "previous_best": {
+    "hits": 322,
+    "nhay": 446,
+    "parts": [
+      65,
+      63,
+      58,
+      75,
+      61
+    ]
+  },
+  "independent_future_validation": false,
+  "production_updated": false,
+  "caveats": [
+    "Last100 inspected in earlier model searches; no independent generalization claim.",
+    "Selection across many model families inflates retrospective best.",
+    "Baseline 283/500 from older KNN report still not reproduced.",
+    "CSV includes four-day gaps 2025-01-28..31 and 2026-02-16..19; lag is by observed draw index, not calendar day.",
+    "No SSH/VPS runner confirmed."
+  ]
+}
