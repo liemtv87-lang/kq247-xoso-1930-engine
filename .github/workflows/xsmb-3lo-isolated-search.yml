@@ -11,7 +11,7 @@ concurrency:
 jobs:
   search:
     runs-on: ubuntu-latest
-    timeout-minutes: 55
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -29,7 +29,7 @@ jobs:
           print("Validated draws:",len(rows))
           PY
       - name: Run isolated bounded search
-        run: python research/xsmb_3lo_search.py --seconds 2700 --out research/results/xsmb_3lo_search_progress.json
+        run: python research/xsmb_3lo_search.py --seconds 480 --out research/results/xsmb_3lo_search_progress.json
       - name: Upload search report
         if: always()
         uses: actions/upload-artifact@v4
