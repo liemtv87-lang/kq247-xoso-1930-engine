@@ -1,0 +1,114 @@
+{
+  "timestamp_vn": "2026-10-14 20:51",
+  "source": "research/data/xsmb_27_endings.csv",
+  "source_sha": "9d1ec4a57875593f83e3dd8d97b76aa81ea6bddc",
+  "rows": 620,
+  "model_family": "Per-number self-autocorrelation: 3 groups of lags [2,3,4,5], [6,7,10,14], [21,28], rolling 120-draw empirical conditional rate, plus 30/90 draw frequency and 30-draw gap",
+  "unique_configs_executed": 768,
+  "config_generation": "Halton indices 1001..1768; 6 weights in [-2,2], unique by index",
+  "training_selection": "Maximize train400 hits then nhay, no use of retrospective100 to choose config",
+  "best_config": {
+    "index": 1447,
+    "weights": [
+      1.587890625,
+      0.5148605395518975,
+      0.31296000000000035,
+      1.120366513952519,
+      0.5126698995970216,
+      -0.5889849795175239
+    ]
+  },
+  "train400": {
+    "hits": 254,
+    "nhay": 367,
+    "parts": [
+      64,
+      62,
+      62,
+      66,
+      0
+    ]
+  },
+  "retrospective100": {
+    "hits": 55,
+    "nhay": 78,
+    "parts": [
+      0,
+      0,
+      0,
+      0,
+      55
+    ]
+  },
+  "total500": {
+    "hits": 309,
+    "nhay": 445,
+    "parts": [
+      64,
+      62,
+      62,
+      66,
+      55
+    ]
+  },
+  "baseline_hot30_unique_presence_tie_asc": {
+    "hits": 277,
+    "nhay": 401,
+    "parts": [
+      53,
+      51,
+      51,
+      66,
+      56
+    ]
+  },
+  "baseline_hot30_occurrences_tie_asc": {
+    "hits": 285,
+    "nhay": 427,
+    "parts": [
+      60,
+      59,
+      47,
+      66,
+      53
+    ]
+  },
+  "baseline_knn_reported_283": "Still requires exact algorithm/tie audit; not reproduced by either standard baseline definition",
+  "prior_best": {
+    "hits": 322,
+    "nhay": 446,
+    "parts": [
+      65,
+      63,
+      58,
+      75,
+      61
+    ]
+  },
+  "data_quality": {
+    "unique_dates": 620,
+    "draws_with_27_endings": 620,
+    "calendar_gaps": [
+      {
+        "missing": "2025-01-28 to 2025-01-31",
+        "days": 4
+      },
+      {
+        "missing": "2026-02-16 to 2026-02-19",
+        "days": 4
+      }
+    ],
+    "note": "Lag is indexed by observed draws, not calendar days"
+  },
+  "independent_future_validation": false,
+  "production_updated": false,
+  "github_workflow_seconds": 480,
+  "github_workflow_timeout_minutes": 15,
+  "script_train_only_fix": "Attempted in this run, GitHub update_file blocked by safety checks; unchanged",
+  "notes": [
+    "No future draw outcome used in daily features",
+    "Last100 previously inspected, not independent",
+    "Model family is exploratory; multiple comparisons bias",
+    "No SSH/VPS runner verified"
+  ]
+}
