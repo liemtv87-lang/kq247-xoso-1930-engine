@@ -1,0 +1,81 @@
+{
+  "timestamp_vn": "2026-10-14 18:51",
+  "source": "research/data/xsmb_27_endings.csv",
+  "source_sha": "9d1ec4a57875593f83e3dd8d97b76aa81ea6bddc",
+  "rows": 620,
+  "model_family": "Empirical renewal-gap hazard kernels 1/2/4, survival, burstiness, interval dispersion",
+  "unique_configs_executed": 720,
+  "config_generation": "Halton indices 1..720, 2 deterministic zeroed weights",
+  "selection": "first 400 days only; 100 retrospective previously inspected",
+  "config_index": 710,
+  "weights": [
+    2.176953125,
+    0,
+    0,
+    -0.8065389421074554,
+    1.4143501126972202,
+    0.298361401911698,
+    1.1067575819255038,
+    0.9025368129464937,
+    -0.38822224048656206
+  ],
+  "train400": {
+    "hits": 248,
+    "nhay": 374,
+    "parts": [
+      58,
+      60,
+      69,
+      61,
+      0
+    ]
+  },
+  "retrospective100": {
+    "hits": 56,
+    "nhay": 84,
+    "parts": [
+      0,
+      0,
+      0,
+      0,
+      56
+    ]
+  },
+  "total500": {
+    "hits": 304,
+    "nhay": 458,
+    "parts": [
+      58,
+      60,
+      69,
+      61,
+      56
+    ]
+  },
+  "baseline30": {
+    "hits": 277,
+    "nhay": 401,
+    "parts": [
+      53,
+      51,
+      51,
+      66,
+      56
+    ]
+  },
+  "random_expected_hits500": 280.65826839826855,
+  "prior_best": {
+    "hits": 320,
+    "nhay": 455,
+    "parts": [
+      72,
+      59,
+      63,
+      64,
+      62
+    ]
+  },
+  "independent_future_validation": false,
+  "production_updated": false,
+  "notes": "No lookahead in feature generation; retrospective 100 not independent; no deployment."
+}
