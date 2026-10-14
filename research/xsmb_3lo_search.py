@@ -39,26 +39,34 @@ def main():
     args=ap.parse_args()
     rows=load(args.csv)
     if len(rows)<600:raise ValueError("Need >=600 draws")
-    random.seed(args.seed)
+    seed = args.seed if args.seed is not None else random.SystemRandom().randrange(1 << 63)
+    rng = random.Random(seed)
     output=pathlib.Path(args.out);output.parent.mkdir(parents=True,exist_ok=True)
     best={"train400_hits":-1,"train400_nhay":-1};tested=0;start=time.monotonic()
+    seen=set();duplicate_skips=0;config_space=7*7*5*7*6*5
     while time.monotonic()-start<args.seconds:
-        cfg=(random.choice([10,14,21,30,45,60,90]),
-             random.choice([0,.01,.02,.03,.04,.06,.08]),
-             random.choice([0,1,2,3,4]),
-             random.choice([0,1,2,3,4,5,6]),
-             random.choice([0,.5,1,1.5,2,3]),
-             random.choice([-2,-1,0,1,2]))
+        cfg=(rng.choice([10,14,21,30,45,60,90]),
+             rng.choice([0,.01,.02,.03,.04,.06,.08]),
+             rng.choice([0,1,2,3,4]),
+             rng.choice([0,1,2,3,4,5,6]),
+             rng.choice([0,.5,1,1.5,2,3]),
+             rng.choice([-2,-1,0,1,2]))
+        if cfg in seen:
+            duplicate_skips+=1
+            continue
+        seen.add(cfg)
         result=evaluate(rows,cfg)
         tested+=1
         if (result["train400_hits"],result["train400_nhay"]) > (best["train400_hits"],best["train400_nhay"]):
             best={**result,"config":cfg}
         if tested%25==0:
-            report={"tested":tested,"elapsed_seconds":round(time.monotonic()-start,2),
+            report={"tested":tested,"seed":seed,"duplicate_skips":duplicate_skips,"elapsed_seconds":round(time.monotonic()-start,2),
                     "best":best,"target":360,"production_updated":False,
                     "warning":"Selected by train400 only; retrospective last100 previously inspected, NOT independent. Future untouched validation required."}
             output.write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
             print(f"tested={tested} best={best['hits']}/500 nhay={best['nhay']}",flush=True)
-    output.write_text(json.dumps({"tested":tested,"best":best,"production_updated":False,
+        if len(seen)>=config_space:
+            break
+    output.write_text(json.dumps({"tested":tested,"seed":seed,"duplicate_skips":duplicate_skips,"best":best,"production_updated":False,
         "warning":"Train400-selected search; retrospective last100 not independent. Do not deploy without future validation."},indent=2),encoding="utf-8")
 if __name__=="__main__":main()
