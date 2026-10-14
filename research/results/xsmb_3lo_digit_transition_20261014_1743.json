@@ -1,0 +1,75 @@
+{
+  "timestamp_vn": "2026-10-14 17:43",
+  "dataset": {
+    "rows": 620,
+    "first": "2025-01-24",
+    "last": "2026-10-13"
+  },
+  "experiment": "Digit-head/tail conditional similarity Markov lag1 and lag7, rolling windows60/180; normalized features, 3 numbers per draw",
+  "unique_configs_executed": 480,
+  "seed": 202610141743,
+  "selection": "400 training days only; last100 retrospective previously viewed (NOT independent)",
+  "selected_config": [
+    1,
+    0.5,
+    0.25,
+    2,
+    0.25,
+    0.25,
+    0,
+    0.5,
+    1,
+    0
+  ],
+  "selected_config_index": 113,
+  "train400": {
+    "hits": 244,
+    "nhay": 353,
+    "blocks": [
+      58,
+      59,
+      60,
+      67
+    ]
+  },
+  "retrospective100": {
+    "hits": 51,
+    "nhay": 73
+  },
+  "total500": {
+    "hits": 295,
+    "nhay": 426,
+    "blocks": [
+      58,
+      59,
+      60,
+      67,
+      51
+    ]
+  },
+  "baseline_30": {
+    "hits": 285,
+    "nhay": 427,
+    "blocks": [
+      60,
+      59,
+      47,
+      66,
+      53
+    ]
+  },
+  "prior_best": {
+    "hits": 320,
+    "nhay": 455,
+    "blocks": [
+      72,
+      59,
+      63,
+      64,
+      62
+    ]
+  },
+  "independent_future_validation": false,
+  "production_updated": false,
+  "notes": "Model selection is training-only but repeated inspection of last100 invalidates independent claims; no deployment."
+}
