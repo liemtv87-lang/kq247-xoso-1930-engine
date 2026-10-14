@@ -31,7 +31,7 @@ def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--csv",default="research/data/xsmb_27_endings.csv")
     ap.add_argument("--seconds",type=int,default=600)
-    ap.add_argument("--seed",type=int,default=20261014)
+    ap.add_argument("--seed",type=int,default=None)
     ap.add_argument("--out",default="research/results/xsmb_3lo_search_progress.json")
     args=ap.parse_args()
     rows=load(args.csv)
