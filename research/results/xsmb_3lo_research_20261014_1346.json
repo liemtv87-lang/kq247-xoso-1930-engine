@@ -1,0 +1,43 @@
+{
+  "run_local": "2026-10-14 13:46 Asia/Ho_Chi_Minh",
+  "dataset": {
+    "draws": 620,
+    "first": "2025-01-24",
+    "last": "2026-10-13",
+    "non_draw_gaps": 2
+  },
+  "new_configurations_tested": 1600,
+  "total_tested_reported_previous": 6577,
+  "reference": {
+    "hit500": 317,
+    "nhay500": 469,
+    "blocks": [
+      67,
+      60,
+      65,
+      56,
+      69
+    ],
+    "first400_hits": 248,
+    "last100_hits": 69
+  },
+  "training_only_search": {
+    "top_training_hits400": 258,
+    "retrospective_last100_hits": 58,
+    "total500_hits": 316,
+    "nhay500": 459,
+    "blocks": [
+      65,
+      66,
+      62,
+      65,
+      58
+    ]
+  },
+  "baseline_expected_500": 280.31,
+  "target_hits_500": 360,
+  "target_met": false,
+  "independent_future_validation": false,
+  "production_updated": false,
+  "notes": "Last 100 days already seen in prior searches; retrospective split is not untouched holdout. Research only."
+}
