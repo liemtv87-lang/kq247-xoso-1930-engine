@@ -1,0 +1,85 @@
+{
+  "timestamp_vn": "2026-10-14 16:49",
+  "dataset": {
+    "rows": 620,
+    "first": "2025-01-24",
+    "last": "2026-10-13",
+    "source": "research/data/xsmb_27_endings.csv",
+    "sha": "9d1ec4a57875593f83e3dd8d97b76aa81ea6bddc"
+  },
+  "experiment": "Historical conditional transition Markov residuals lag1/2/7, windows30/90/180/360, shrunk vs unconditional marginal; plus 14/30/90/180/360 day marginals",
+  "new_unique_configs": 1400,
+  "config_seed": 202610141649,
+  "selection": "Train-only first 400 of 500; no lookahead for daily features; retrospective last100 NOT independent",
+  "best_config": {
+    "marginal_window": 30,
+    "lag1_window": 90,
+    "lag2_window": 180,
+    "lag7_window": 30,
+    "weights": {
+      "marginal": 4,
+      "lag1": 0.5,
+      "lag2": 2,
+      "lag7": 1
+    }
+  },
+  "train400": {
+    "hits": 250,
+    "nhay": 365,
+    "blocks": [
+      64,
+      62,
+      58,
+      66,
+      0
+    ]
+  },
+  "retrospective100": {
+    "hits": 54,
+    "nhay": 81,
+    "blocks": [
+      0,
+      0,
+      0,
+      0,
+      54
+    ]
+  },
+  "total500": {
+    "hits": 304,
+    "nhay": 446,
+    "blocks": [
+      64,
+      62,
+      58,
+      66,
+      54
+    ]
+  },
+  "baseline_marginal_30": {
+    "hits": 285,
+    "nhay": 427,
+    "blocks": [
+      60,
+      59,
+      47,
+      66,
+      53
+    ]
+  },
+  "random_expected_hit500": 280.31174991308086,
+  "prior_best": {
+    "hits": 320,
+    "nhay": 455,
+    "blocks": [
+      72,
+      59,
+      63,
+      64,
+      62
+    ]
+  },
+  "independent_future_validation": false,
+  "production_updated": false,
+  "notes": "Last100 has been repeatedly viewed; no independent holdout. Selection among 1400 configs on 400 historical days can overfit."
+}
