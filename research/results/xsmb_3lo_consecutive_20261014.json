@@ -1,0 +1,27 @@
+{
+  "run_local": "2026-10-14 13:46 Asia/Ho_Chi_Minh",
+  "strategy": "Choose exactly three consecutive endings (mod 100) using only prior draws",
+  "configurations_tested": 245,
+  "best": {
+    "hits500": 300,
+    "nhay500": 459,
+    "blocks": [
+      64,
+      51,
+      60,
+      67,
+      58
+    ],
+    "window": 90,
+    "decay": 0.02,
+    "previous_day_penalty": 4
+  },
+  "reference": {
+    "hits500": 317,
+    "nhay500": 469
+  },
+  "target": 360,
+  "met": false,
+  "independent_validation": false,
+  "production_updated": false
+}
