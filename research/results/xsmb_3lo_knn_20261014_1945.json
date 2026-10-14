@@ -1,0 +1,118 @@
+{
+  "timestamp_vn": "2026-10-14 19:45",
+  "source": "research/data/xsmb_27_endings.csv",
+  "source_sha": "9d1ec4a57875593f83e3dd8d97b76aa81ea6bddc",
+  "rows": 620,
+  "date_first": "2025-01-24",
+  "date_last": "2026-10-13",
+  "model_family": "Nearest historical draw analogs: previous draw head/tail histogram similarity, exact-number overlap, weekday penalty, 8/16/32/64 nearest analogs, blend 30/90-day and same-weekday frequencies",
+  "unique_configs_executed": 1728,
+  "grid": {
+    "distance_variants": 6,
+    "neighbor_counts": [
+      8,
+      16,
+      32,
+      64
+    ],
+    "analog_weights": [
+      0.25,
+      0.5,
+      1,
+      2
+    ],
+    "hot30_weights": [
+      0,
+      0.5,
+      1
+    ],
+    "hot90_weights": [
+      0,
+      0.5,
+      1
+    ],
+    "weekday_weights": [
+      0,
+      0.75
+    ]
+  },
+  "best_config": {
+    "variant_index_zero_based": 2,
+    "distance_weights": {
+      "head_histogram": 1,
+      "tail_histogram": 2,
+      "overlap": 1,
+      "weekday_penalty": 0
+    },
+    "k": 8,
+    "analog_weight": 0.25,
+    "hot30_weight": 0,
+    "hot90_weight": 1,
+    "same_weekday_weight": 0
+  },
+  "train400": {
+    "hits": 261,
+    "nhay": 358,
+    "parts": [
+      65,
+      63,
+      58,
+      75,
+      0
+    ]
+  },
+  "retrospective100": {
+    "hits": 61,
+    "nhay": 88,
+    "parts": [
+      0,
+      0,
+      0,
+      0,
+      61
+    ]
+  },
+  "total500": {
+    "hits": 322,
+    "nhay": 446,
+    "parts": [
+      65,
+      63,
+      58,
+      75,
+      61
+    ]
+  },
+  "baseline_hot30_same_pipeline": {
+    "hits": 283,
+    "nhay": 422,
+    "parts": [
+      58,
+      61,
+      47,
+      65,
+      52
+    ]
+  },
+  "previous_best": {
+    "hits": 320,
+    "nhay": 455,
+    "parts": [
+      72,
+      59,
+      63,
+      64,
+      62
+    ]
+  },
+  "selection": "All 1728 models scored only on first 400 evaluated days. Winning configuration then scored on final 100 previously inspected days. No future outcome was used to predict a day.",
+  "data_splitting": "500 evaluated days, starting at row index 120; training rows index 120..519; retrospective rows index 520..619; analog historical candidate j strictly less than target index i.",
+  "independent_future_validation": false,
+  "production_updated": false,
+  "caveats": [
+    "Retrospective last100 already inspected in earlier research, not independent",
+    "Baseline hot30 differs from older reports 277/285 due to potential tie-handling or window differences; same-pipeline baseline here 283; audit before cross-report comparison",
+    "Historical selection over many model families creates selection bias",
+    "Workflow quota cap change is a separate commit; no VPS runner confirmed"
+  ]
+}
